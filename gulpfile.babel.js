@@ -48,7 +48,7 @@ gulp.task("clean", () => {
 
 // SASS build task.
 gulp.task("sass", () => {
-    let action = gulp.src(`${PATH.SRC.SASS}/index.scss`),
+    let action = gulp.src(`${PATH.SRC.SASS}/browser.scss`),
         sass = PLUGINS.sass,
         sourcemaps = PLUGINS.sourcemaps,
         production = getArg("production");
@@ -73,7 +73,7 @@ gulp.task("sass", () => {
 gulp.task("js", () => {
     let action;
     
-    action = gulp.src(`${PATH.SRC.JS}/index.js`)
+    action = gulp.src(`${PATH.SRC.JS}/windows/browser.js`)
         .pipe(PLUGINS.plumber({
             errorHandler: function(err) {
                 console.log(err);
@@ -94,7 +94,6 @@ gulp.task("server", (done) => {
         host: "localhost",
         root: "dist",
         open: false,
-        file: "index.html",
         wait: 250
     });
     

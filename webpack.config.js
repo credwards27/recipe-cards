@@ -29,7 +29,7 @@ const MinifyPlugin = require("babel-minify-webpack-plugin"),
         plugins: [],
         
         entry: {
-            main: `./${CONFIG.PATH.SRC.JS}/index.js`
+            browser: `./${CONFIG.PATH.SRC.JS}/windows/browser.js`
         },
         
         output: {
