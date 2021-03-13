@@ -16,7 +16,10 @@ const CONFIG = {
             SASS: "sass",
             
             // JS build source path.
-            JS: "js"
+            JS: "js",
+            
+            // Font source path.
+            FONT: "font"
         },
         
         // Destination output paths.
@@ -28,7 +31,10 @@ const CONFIG = {
             SASS: "assets/css",
             
             // JS build output path.
-            JS: "assets/js"
+            JS: "assets/js",
+            
+            // Font output path.
+            FONT: "assets/font"
         }
     }
 };

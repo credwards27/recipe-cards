@@ -1,0 +1,83 @@
+//
+// Open Sans
+//
+
+// Regular
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-Regular.ttf') format('ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-Italic.ttf') format('ttf');
+    font-style: italic;
+    font-weight: 400;
+}
+
+// Light
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-Light.ttf') format('ttf');
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-LightItalic.ttf')
+        format('ttf');
+    font-style: italic;
+    font-weight: 100;
+}
+
+// Semi-bold
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-SemiBold.ttf') format('ttf');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-SemiBoldItalic.ttf')
+        format('ttf');
+    font-style: italic;
+    font-weight: 500;
+}
+
+// Bold
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-Bold.ttf') format('ttf');
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-BoldItalic.ttf')
+        format('ttf');
+    font-style: italic;
+    font-weight: 600;
+}
+
+// Extra bold
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-ExtraBold.ttf')
+        format('ttf');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('app://assets/font/open-sans/OpenSans-ExtraBoldItalic.ttf')
+        format('ttf');
+    font-style: italic;
+    font-weight: 700;
+}

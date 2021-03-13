@@ -34,6 +34,7 @@ const PATH = CONFIG.PATH,
 gulp.task("watch", (done) => {
     gulp.watch(`${PATH.SRC.SASS}/**/*.scss`, gulp.series("sass"));
     gulp.watch(`${PATH.SRC.JS}/**/*.js`, gulp.series("js"));
+    gulp.watch(`${PATH.SRC.FONT}/**/*`, gulp.series("font"));
     
     done();
 });
@@ -42,8 +43,15 @@ gulp.task("watch", (done) => {
 gulp.task("clean", () => {
     return del([
         `${PATH.DEST.SASS}/**/*`,
-        `${PATH.DEST.JS}/**/*`
+        `${PATH.DEST.JS}/**/*`,
+        `${PATH.DEST.FONT}/**/*`
     ]);
+});
+
+// Asset copy task.
+gulp.task("font", () => {
+    return gulp.src(`${PATH.SRC.FONT}/**/*.ttf`)
+        .pipe(gulp.dest(PATH.DEST.FONT));
 });
 
 // SASS build task.
@@ -100,12 +108,18 @@ gulp.task("server", (done) => {
     done();
 });
 
+// Asset copy task.
+gulp.task(
+    "assets",
+    gulp.parallel("font")
+);
+
 // Complete build task.
 gulp.task(
     "build",
     gulp.series(
         "clean",
-        gulp.parallel("sass", "js")
+        gulp.parallel("sass", "js", "assets")
     )
 );
 
