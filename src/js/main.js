@@ -7,6 +7,9 @@
 const { app, BrowserWindow } = require("electron");
 const windowManager = require("app/back/window-manager.js");
 
+// Non-object dependencies.
+require("app/back/protocols.js");
+
 // Live reload for development
 try {
     require("electron-reloader")(module);
