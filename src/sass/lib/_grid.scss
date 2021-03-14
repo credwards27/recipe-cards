@@ -16,9 +16,20 @@
 
 /* Grid styling definition. Use this to generate grid styles for another
     stylesheet or style context.
+    
+    cols - Number of columns the grid supports.
+    suffix - Optional suffix for the grid wrapper class. If specified, the
+        wrapper class name will be 'grid-{$suffix}'.
 */
-@mixin grid($cols) {
-    .grid {
+@mixin grid($cols, $suffix: false) {
+    @if $suffix {
+        $suffix: '-#{$suffix}';
+    }
+    @else {
+        $suffix: '';
+    }
+    
+    .grid#{$suffix} {
         display: flex;
         flex-wrap: wrap;
         
