@@ -1,0 +1,40 @@
+@use 'sass:math';
+@use 'sass:list';
+@use 'vars';
+
+@mixin gutters() {
+    padding-left: vars.$gutter;
+    padding-right: vars.$gutter;
+}
+
+@mixin grid($cols) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        
+        [class*='col-'] {
+            @include gutters();
+            
+            margin: 0;
+            
+            &.expand {
+                flex-grow: 1;
+            }
+        }
+        
+        // Build column styles
+        @for $i from 1 through $cols {
+            $percent: math.percentage($i / $cols);
+            
+            .col-#{$i} {
+                flex-basis: $percent;
+            }
+            .push-#{$i} {
+                margin-left: $percent;
+            }
+            .pull-#{$i} {
+                margin-left: -$percent;
+            }
+        }
+    }
+}
