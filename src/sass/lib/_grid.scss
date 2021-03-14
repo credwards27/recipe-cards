@@ -1,12 +1,22 @@
+/* _grid.scss
+    
+    Grid layout styling.
+*/
+
 @use 'sass:math';
 @use 'sass:list';
 @use 'vars';
 
+/* Common gutter styling.
+*/
 @mixin gutters() {
     padding-left: vars.$gutter;
     padding-right: vars.$gutter;
 }
 
+/* Grid styling definition. Use this to generate grid styles for another
+    stylesheet or style context.
+*/
 @mixin grid($cols) {
     .grid {
         display: flex;
