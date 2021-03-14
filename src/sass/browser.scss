@@ -2,17 +2,15 @@
 
 /* Imports */
 
-@use 'sass:map';
-@use 'vars';
-@use 'grid';
+@use 'lib';
 
 /* Meta */
 
 body {
-    background: map.get(vars.$colors, white);
+    background: lib.color(white);
     margin: 0;
     
-    color: map.get(vars.$colors, primary);
+    color: lib.color(primary);
     font-family: 'Open Sans';
     font-size: 16px;
     
@@ -30,4 +28,4 @@ body {
 
 /* Layout */
 
-@include grid.grid(12);
+@include lib.grid(12);
