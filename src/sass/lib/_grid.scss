@@ -32,11 +32,19 @@
     .grid#{$suffix} {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
         
         [class*='col-'] {
             @include gutters();
             
             margin: 0;
+            
+            :first-child {
+                margin-top: 0;
+            }
+            :last-child {
+                margin-bottom: 0;
+            }
             
             &.expand {
                 flex-grow: 1;
