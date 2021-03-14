@@ -2,3 +2,13 @@
     
     General purpose mixins.
 */
+
+/* Standard interaction transition.
+    
+    props - CSS properties to animate.
+*/
+@mixin animate-interact($props) {
+    transition-property: #{$props};
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}

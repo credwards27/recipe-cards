@@ -1,0 +1,34 @@
+/* _button.scss
+    
+    Common button styling.
+*/
+
+@use 'vars';
+@use 'functions' as f;
+@use 'mixins' as m;
+
+.button {
+    background: f.color(secondary);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    
+    border-radius: vars.$border-radius;
+    
+    @include m.animate-interact('background, color');
+    
+    color: #fff;
+    font-size: vars.$font-size;
+    
+    &:hover,
+    &:focus {
+        background: f.color(secondary-light-1);
+        outline: none;
+    }
+}
+
+input[type="button"],
+button {
+    appearance: none;
+    @extend .button;
+}
