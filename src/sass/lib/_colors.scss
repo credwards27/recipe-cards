@@ -6,24 +6,32 @@
     Paletton.com © 2002-2014 http://paletton.com
     
     Palette URL: https://paletton.com/#uid=55c0U0kllll3NYvczvAu7b5PE0Q
+    Gray Palette URL: https://paletton.com/#uid=55c0U0k00ie00++06tt0f5yms4o
 */
 
 $colors: (
     black: #101010,
     white: #fff,
     
+    gray: #767676,
+    gray-light-1: #bfbfbf,
+    gray-light-2: #ebeaea,
+    
     primary: #8b2e5f,
     primary-light-1: #cd7da7,
     primary-light-2: #fbdeed,
     primary-dark-1: #480428,
+    primary-dark-2: #1c0913,
     
     secondary: #442f74,
     secondary-light-1: #8270ac,
     secondary-light-2: #e6def9,
     secondary-dark-1: #19093c,
+    secondary-dark-2: #0d0918,
     
     tertiary: #aa6b39,
     tertiary-light-1: #fcc599,
     tertiary-light-2: #ffeee1,
-    tertiary-dark-1: #582a05
+    tertiary-dark-1: #582a05,
+    tertiary-dark-2: #23150a
 );

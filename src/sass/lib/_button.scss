@@ -17,7 +17,7 @@
     
     @include m.animate-interact('background, color');
     
-    color: #fff;
+    color: f.color(gray-light-2);
     font-size: vars.$font-size;
     
     &:hover,
