@@ -5,32 +5,4 @@
 
 @charset "UTF-8";
 
-/* Imports */
-
-@use 'lib';
-
-/* Meta */
-
-body {
-    background: lib.color(white);
-    margin: 0;
-    
-    color: lib.color(primary);
-    font-family: 'Open Sans';
-    font-size: 16px;
-    
-    * {
-        box-sizing: border-box;
-    }
-    
-    > :first-child {
-        margin-top: 0;
-    }
-    > :last-child {
-        margin-bottom: 0;
-    }
-}
-
-/* Layout */
-
-@include lib.grid(12);
+@use 'browser/index';
