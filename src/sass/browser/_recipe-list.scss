@@ -1,0 +1,50 @@
+/* _recipe-list.scss
+    
+    Loaded recipe list component.
+*/
+
+@use 'lib';
+
+#recipe-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    
+    li {
+        background: lib.color(gray-light-2);
+        width: 100%;
+        padding-top: lib.$gutter;
+        padding-bottom: lib.$gutter;
+        cursor: default;
+        
+        &:nth-child(2n) {
+            background: lib.color(secondary-light-2);
+        }
+        
+        &.selected {
+            background: lib.color(secondary);
+            color: lib.color(gray-light-2);
+        }
+    }
+    
+    .controls {
+        justify-content: flex-end;
+        
+        > * {
+            display: inline-block;
+        }
+        
+        .delete {
+            cursor: pointer;
+        }
+        .move {
+            cursor: move;
+        }
+        
+        &.dragging {
+            &, .move {
+                cursor: grabbing;
+            }
+        }
+    }
+}
