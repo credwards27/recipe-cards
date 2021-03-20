@@ -4,7 +4,7 @@
 */
 
 // Dependencies.
-const onReady = require("app/front/ready.js");
+const onReady = require("app/front/utils/ready.js");
 
 onReady(() => {
 });
