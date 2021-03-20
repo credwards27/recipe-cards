@@ -7,7 +7,7 @@
 const onReady = require("app/front/utils/ready.js"),
     RecipeList = require("app/front/browser/recipe-list.js");
 
-onReady(() => {
+onReady(document, () => {
     let data = document.getElementById("test-data"),
         recipeLists = document.querySelectorAll("[data-recipe-list]"),
         recipes = [];
