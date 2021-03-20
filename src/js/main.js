@@ -33,4 +33,6 @@ app.on("activate", async () => {
 });
 
 // Initialize
-app.whenReady().then(windowManager.getWindow);
+app.whenReady().then(() => {
+    windowManager.getWindow();
+});
