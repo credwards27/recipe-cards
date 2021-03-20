@@ -1,4 +1,4 @@
-# Recipes
+# Recipe Cards
 
 Tool to generate printable recipe cards.
 

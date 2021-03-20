@@ -1,5 +1,5 @@
 {
-  "name": "recipes",
+  "name": "recipe-cards",
   "version": "0.0.1",
   "description": "Tool to generate printable recipe cards",
   "main": "src/js/main.js",
