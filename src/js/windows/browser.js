@@ -9,7 +9,9 @@ const onReady = require("app/front/utils/ready.js"),
 
 onReady(document, () => {
     let data = document.getElementById("test-data"),
-        recipeLists = document.querySelectorAll("[data-recipe-list]"),
+        recipeLists = document.querySelectorAll(
+            "[data-component='recipe-list']"
+        ),
         recipes = [];
     
     data = JSON.parse(data.innerText.trim());
