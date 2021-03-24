@@ -4,24 +4,23 @@
 */
 
 // Dependencies.
-const onReady = require("app/front/utils/ready.js"),
+const ReactDOM = require("react-dom"),
+    onReady = require("app/front/utils/ready.js"),
     RecipeList = require("app/front/browser/recipe-list.js");
 
 onReady(document, () => {
-    let data = document.getElementById("test-data"),
-        recipeLists = document.querySelectorAll(
-            "[data-component='recipe-list']"
-        ),
-        recipes = [];
+    let data = document.getElementById("test-data");
     
     data = JSON.parse(data.innerText.trim());
     
-    for (let i=0, l=recipeLists.length; i<l; ++i) {
-        recipes.push(new RecipeList(
-            data.recipes,
-            recipeLists[i]
-        ));
-    }
+    let recipeList = ReactDOM.render(
+        <RecipeList
+            {...{
+                recipes: data.recipes
+            }}
+        />,
+        document.getElementById("recipe-list")
+    );
     
-    window.recipes = recipes[0];
+    window.recipes = recipeList;
 });
