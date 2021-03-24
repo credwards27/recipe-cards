@@ -35,7 +35,10 @@ const CONFIG = {
             
             // Font output path.
             FONT: "assets/font"
-        }
+        },
+        
+        // External node modules directory
+        MODULES: `${__dirname}/node_modules`
     }
 };
 

@@ -48,7 +48,21 @@ gulp.task("clean", () => {
     ]);
 });
 
-// Asset copy task.
+// React assets copy task.
+gulp.task("react", () => {
+    return gulp.src(`${PATH.MODULES}/react/umd/react.development.js`)
+        .pipe(PLUGINS.rename("react.js"))
+        .pipe(gulp.dest(PATH.DEST.JS));
+});
+
+// React DOM assets copy task.
+gulp.task("react-dom", () => {
+    return gulp.src(`${PATH.MODULES}/react-dom/umd/react-dom.development.js`)
+        .pipe(PLUGINS.rename("react-dom.js"))
+        .pipe(gulp.dest(PATH.DEST.JS));
+});
+
+// Font copy task.
 gulp.task("font", () => {
     return gulp.src(`${PATH.SRC.FONT}/**/*.ttf`)
         .pipe(gulp.dest(PATH.DEST.FONT));
@@ -108,10 +122,16 @@ gulp.task("server", (done) => {
     done();
 });
 
+// React combined asset copy task.
+gulp.task(
+    "react-assets",
+    gulp.parallel("react", "react-dom")
+);
+
 // Asset copy task.
 gulp.task(
     "assets",
-    gulp.parallel("font")
+    gulp.parallel("react-assets", "font")
 );
 
 // Complete build task.
