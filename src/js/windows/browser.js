@@ -6,7 +6,7 @@
 // Dependencies.
 const ReactDOM = require("react-dom"),
     onReady = require("app/front/utils/ready.js"),
-    RecipeList = require("app/front/browser/recipe-list.js");
+    RecipeList = require("app/front/browser/components/recipe-list.js");
 
 onReady(document, () => {
     let data = document.getElementById("test-data");
