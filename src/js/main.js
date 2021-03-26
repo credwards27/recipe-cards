@@ -9,6 +9,7 @@ const windowManager = require("app/back/window-manager.js");
 
 // Non-object dependencies.
 require("app/back/protocols.js");
+require("app/back/ipc.js");
 
 // Live reload for development
 try {
