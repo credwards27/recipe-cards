@@ -4,12 +4,12 @@
 */
 
 // Dependencies.
-const { app, BrowserWindow } = require("electron");
-const windowManager = require("app/back/window-manager.js");
+const { app, BrowserWindow } = require("electron"),
+    windowManager = require("app/back/window-manager.js");
+    AppManager = require("app/back/app-manager.js");
 
 // Non-object dependencies.
 require("app/back/protocols.js");
-require("app/back/ipc.js");
 
 // Live reload for development
 try {
@@ -35,5 +35,6 @@ app.on("activate", async () => {
 
 // Initialize
 app.whenReady().then(() => {
+    new AppManager();
     windowManager.getWindow();
 });
