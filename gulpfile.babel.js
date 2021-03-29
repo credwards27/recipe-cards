@@ -70,7 +70,7 @@ gulp.task("font", () => {
 
 // SASS build task.
 gulp.task("sass", () => {
-    let action = gulp.src(`${PATH.SRC.SASS}/browser.scss`),
+    let action = gulp.src(`${PATH.SRC.SASS}/*.scss`),
         sass = PLUGINS.dartSass,
         sourcemaps = PLUGINS.sourcemaps,
         production = getArg("production");
@@ -95,7 +95,7 @@ gulp.task("sass", () => {
 gulp.task("js", () => {
     let action;
     
-    action = gulp.src(`${PATH.SRC.JS}/windows/browser.js`)
+    action = gulp.src(`${PATH.SRC.JS}/windows/*.js`)
         .pipe(PLUGINS.plumber({
             errorHandler: function(err) {
                 console.log(err);
