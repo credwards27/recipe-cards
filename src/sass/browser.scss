@@ -5,5 +5,5 @@
 
 @charset "UTF-8";
 
-@use 'browser/index';
-@use 'browser/recipe-list';
+@use 'windows/browser';
+@use 'windows/browser/recipe-list';
