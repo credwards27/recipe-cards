@@ -35,6 +35,7 @@ gulp.task("watch", (done) => {
     gulp.watch(`${PATH.SRC.SASS}/**/*.scss`, gulp.series("sass"));
     gulp.watch(`${PATH.SRC.JS}/**/*.js`, gulp.series("js"));
     gulp.watch(`${PATH.SRC.FONT}/**/*`, gulp.series("font"));
+    gulp.watch(`${PATH.SRC.IMG}/**/*`, gulp.series("img"));
     
     done();
 });
@@ -60,6 +61,12 @@ gulp.task("react-dom", () => {
     return gulp.src(`${PATH.MODULES}/react-dom/umd/react-dom.development.js`)
         .pipe(PLUGINS.rename("react-dom.js"))
         .pipe(gulp.dest(PATH.DEST.JS));
+});
+
+// Image copy task.
+gulp.task("img", () => {
+    return gulp.src(`${PATH.SRC.IMG}/**/*`)
+        .pipe(gulp.dest(PATH.DEST.IMG));
 });
 
 // Font copy task.
@@ -131,7 +138,7 @@ gulp.task(
 // Asset copy task.
 gulp.task(
     "assets",
-    gulp.parallel("react-assets", "font")
+    gulp.parallel("react-assets", "img", "font")
 );
 
 // Complete build task.

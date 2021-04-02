@@ -18,6 +18,9 @@ const CONFIG = {
             // JS build source path.
             JS: "js",
             
+            // Image source path.
+            IMG: "img",
+            
             // Font source path.
             FONT: "font"
         },
@@ -32,6 +35,9 @@ const CONFIG = {
             
             // JS build output path.
             JS: "assets/js",
+            
+            // Image source path.
+            IMG: "assets/img",
             
             // Font output path.
             FONT: "assets/font"
