@@ -8,10 +8,19 @@
 @use 'vars';
 
 /* Common gutter styling.
+    
+    include - True to include gutters, false to invert them as negative margin.
+        Defaults to true.
 */
-@mixin gutters() {
-    padding-left: vars.$gutter;
-    padding-right: vars.$gutter;
+@mixin gutters($include: true) {
+    @if ($include) {
+        padding-left: vars.$gutter;
+        padding-right: vars.$gutter;
+    }
+    @else {
+        margin-left: -(vars.$gutter);
+        margin-right: -(vars.$gutter);
+    }
 }
 
 /* Grid styling definition. Use this to generate grid styles for another
@@ -30,44 +39,48 @@
     }
     
     .grid#{$suffix} {
+        @include gutters();
+        
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .row {
+        @include gutters(false);
+        
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
         
-        * {
-            display: flex;
-        }
-        
-        [class*='col-'] {
+        > * {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            
             @include gutters();
-            
-            margin: 0;
-            
-            :first-child {
-                margin-top: 0;
-            }
-            :last-child {
-                margin-bottom: 0;
-            }
-            
-            &.expand {
-                flex-grow: 1;
-            }
         }
+    }
+    
+    [class*='col-'] {
+        flex: 0 0 auto;
         
-        // Build column styles
-        @for $i from 1 through $cols {
-            $percent: math.percentage($i / $cols);
-            
-            .col-#{$i} {
-                flex-basis: $percent;
-            }
-            .push-#{$i} {
-                margin-left: $percent;
-            }
-            .pull-#{$i} {
-                margin-left: -$percent;
-            }
+        &.expand {
+            flex-grow: 1;
+        }
+    }
+    
+    // Build column styles
+    @for $i from 1 through $cols {
+        $percent: math.percentage($i / $cols);
+        
+        .col-#{$i} {
+            width: $percent;
+        }
+        .push-#{$i} {
+            margin-left: $percent;
+        }
+        .pull-#{$i} {
+            margin-left: -$percent;
         }
     }
 }
