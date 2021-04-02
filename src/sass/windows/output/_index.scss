@@ -1,0 +1,100 @@
+/* _index.scss
+    
+    General styling and layout for the output view.
+*/
+
+@charset "UTF-8";
+
+/* Imports */
+
+@use 'lib';
+
+/* Meta */
+
+@include lib.grid(12);
+
+body {
+    margin: 0;
+    
+    color: lib.color(black);
+    font-family: 'Open Sans';
+    font-size: 16px;
+    
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/* Layout */
+
+.recipe-card {
+    position: relative;
+    background-image:url('app://assets/img/recipe-bg.jpg');
+    background-size: cover;
+    width: 6in;
+    height: 4in;
+    padding: 0.25in;
+    margin: 0 auto 20px;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+    header {
+        margin-bottom: 0.25in;
+        
+        h1,
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: lib.color(gray);
+            font-size: 1rem;
+            font-style: italic;
+            text-align: right;
+        }
+    }
+    
+    &.instructions header {
+        margin-bottom: 0;
+    }
+    
+    .columns {
+        overflow: auto;
+        
+        .column {
+            ul,
+            ol {
+                li {
+                    margin-bottom: 5px;
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            ul {
+                padding-left: 0.35in;
+                
+                li {
+                    list-style-type: circle;
+                }
+            }
+            ol {
+                padding-left: 0.325in;
+                
+                li {
+                    padding-left: 0.025in;
+                }
+            }
+        }
+    }
+}

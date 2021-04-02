@@ -37,4 +37,14 @@ app.on("activate", async () => {
 app.whenReady().then(() => {
     new AppManager();
     windowManager.getWindow();
+    
+    //
+    // DEBUG
+    //
+    
+    windowManager.getWindow("output");
+    
+    //
+    // END DEBUG
+    //
 });
