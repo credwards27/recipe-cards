@@ -6,27 +6,42 @@
 // Dependencies.
 const ReactDOM = require("react-dom"),
     onReady = require("app/front/utils/ready.js"),
-    copy = require("app/all/deep-copy.js"),
     App = require("app/front/output/components/app.js");
+
+// Recipe card dimension properties.
+const CARD_DIMENSIONS = {
+    max: 1440,
+    min: 320,
+    actual: 0,
+    maxScale: 1,
+    minScale: 0
+};
 
 let htmlElem = null,
     
-    recipeCards = null,
-    
-    resizeTimeout = -1;
+    cardWrapper = null;
 
-/* Updates recipe card dimensions and layout.
+/* Updates recipe card scale.
 */
-function updateRecipeCards() {
-    let vpWidth = htmlElem.clientWidth,
-        vpHeight = htmlElem.clientHeight;
+function updateScale() {
+    let { clientWidth: vWidth } = htmlElem,
+        { actual, maxScale, minScale } = CARD_DIMENSIONS,
+        scale = vWidth / actual,
+        origin = vWidth < actual ? "top left " : "top center";
     
-    for (let i=0, l=recipeCards.length; i<l; ++i) {
-        let card = recipeCards[i],
-            { width, height } = card.getBoundingClientRect();
+    // Clamp
+    switch (true) {
+        case scale > maxScale:
+            scale = maxScale;
+            break;
         
-        //debugger;
+        case scale < minScale:
+            scale = minScale;
+            break;
     }
+    
+    cardWrapper.style.transformOrigin = origin;
+    cardWrapper.style.transform = `scale(${scale})`;
 }
 
 onReady(document, () => {
@@ -38,18 +53,22 @@ onReady(document, () => {
     window.app = app;*/
     
     htmlElem = document.getElementsByTagName("html")[0];
-    recipeCards = document.getElementsByClassName("recipe-card");
+    cardWrapper = document.getElementById("recipe-cards");
+    
+    let templateCard = document.getElementsByClassName("recipe-card")[0],
+        dims = CARD_DIMENSIONS,
+        cardWidth = parseInt(
+            getComputedStyle(templateCard).width.replace(/\D+/g, ""),
+            10
+        );
+    
+    dims.actual = cardWidth;
+    dims.maxScale = dims.max / cardWidth;
+    dims.minScale = dims.min / cardWidth;
     
     window.addEventListener("resize", (e) => {
-        if (-1 !== resizeTimeout) {
-            clearTimeout(resizeTimeout);
-        }
-        
-        resizeTimeout = setTimeout(() => {
-            resizeTimeout = -1;
-            updateRecipeCards();
-        }, 500);
+        updateScale();
     });
     
-    updateRecipeCards();
+    updateScale();
 });

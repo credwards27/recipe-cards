@@ -33,11 +33,21 @@ body {
 
 /* Layout */
 
+#recipe-cards {
+    width: 6in;
+    margin: 0 auto;
+    
+    transform-origin: top center;
+    
+    /*transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;*/
+}
+
 .recipe-card {
     position: relative;
     background-image:url('app://assets/img/recipe-bg.jpg');
     background-size: cover;
-    width: 6in;
     height: 4in;
     padding: 0.25in;
     margin: 0 auto 20px;
