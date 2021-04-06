@@ -12,7 +12,7 @@ onReady(document, () => {
     let recipe = document.getElementById("test-data"),
         htmlElem = document.getElementsByTagName("html")[0];
     
-    recipe = JSON.parse(recipe.text);
+    recipe = JSON.parse(recipe.text.replace(/&lt;/g, "<"));
     
     app = ReactDOM.render(
         <App
