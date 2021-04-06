@@ -68,36 +68,58 @@ body {
     }
     
     &.instructions header {
-        margin-bottom: 0;
+        margin-bottom: 0.125in;
     }
     
     .columns {
+        column-count: 2;
+        column-gap: lib.$gutter * 2;
         overflow: auto;
         
-        .column {
-            ul,
-            ol {
-                li {
-                    margin-bottom: 5px;
-                    
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
+        ul,
+        ol {
+            li {
+                margin-bottom: 5px;
+                break-inside: avoid;
+                
+                &:last-child {
+                    margin-bottom: 0;
                 }
             }
-            ul {
-                padding-left: 0.35in;
-                
-                li {
-                    list-style-type: circle;
-                }
+        }
+        ul {
+            padding-left: 0.35in;
+            
+            li {
+                list-style-type: circle;
             }
-            ol {
-                padding-left: 0.325in;
-                
-                li {
-                    padding-left: 0.025in;
-                }
+        }
+        ol {
+            padding-left: 0.325in;
+            
+            li {
+                padding-left: 0.025in;
+            }
+        }
+        
+        > * {
+            margin-top: 0;
+            margin-bottom: 1em;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        * {
+            break-inside: avoid-column;
+        }
+        
+        .allow-break {
+            break-inside: auto;
+            
+            .break {
+                break-before: column;
             }
         }
     }
