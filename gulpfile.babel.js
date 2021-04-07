@@ -75,6 +75,14 @@ gulp.task("font", () => {
         .pipe(gulp.dest(PATH.DEST.FONT));
 });
 
+// Fontawesome asset copy task.
+gulp.task("fontawesome", () => {
+    return gulp.src(
+        `${PATH.MODULES}/@fortawesome/fontawesome-free/webfonts/fa-solid*`
+    )
+        .pipe(gulp.dest(`${PATH.DEST.ROOT}/assets/webfonts`));
+});
+
 // SASS build task.
 gulp.task("sass", () => {
     let action = gulp.src(`${PATH.SRC.SASS}/*.scss`),
@@ -86,7 +94,11 @@ gulp.task("sass", () => {
         action = action.pipe(sourcemaps.init());
     }
     
-    action = action.pipe(sass().on("error", sass.logError))
+    action = action.pipe(sass({
+        includePaths: [
+            `${PATH.MODULES}/@fortawesome`
+        ]
+    }).on("error", sass.logError))
         .pipe(PLUGINS.cleanCss());
     
     if (!production) {
@@ -138,7 +150,7 @@ gulp.task(
 // Asset copy task.
 gulp.task(
     "assets",
-    gulp.parallel("react-assets", "img", "font")
+    gulp.parallel("react-assets", "img", "font", "fontawesome")
 );
 
 // Complete build task.
