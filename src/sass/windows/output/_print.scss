@@ -1,0 +1,16 @@
+@media print {
+    #recipe-cards {
+        transform: none !important;
+    }
+    
+    .recipe-card {
+        -webkit-print-color-adjust: exact;
+        
+        margin-bottom: 3px;
+        
+        &.instructions {
+            transform: rotate(180deg);
+            transform-origin: center center;
+        }
+    }
+}

@@ -40,7 +40,7 @@ body {
 
 .recipe-card {
     position: relative;
-    background-image:url('app://assets/img/recipe-bg.jpg');
+    background-image: url('app://assets/img/recipe-bg.jpg') !important;
     background-size: cover;
     height: 4in;
     padding: 0.25in;
