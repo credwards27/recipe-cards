@@ -76,6 +76,8 @@ body {
         column-gap: lib.$gutter * 2;
         overflow: auto;
         
+        line-height: 1.4;
+        
         ul,
         ol {
             li {
