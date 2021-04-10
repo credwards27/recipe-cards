@@ -8,17 +8,31 @@
     
     #recipe-cards {
         transform: none !important;
-    }
-    
-    .recipe-card {
-        -webkit-print-color-adjust: exact;
         
-        margin-bottom: 3px;
-        border: 1px dotted lib.color(gray-light-1);
+        .recipe-card {
+            -webkit-print-color-adjust: exact;
+            border: 1px dotted lib.color(gray-light-1);
+        }
         
-        &.instructions {
-            transform: rotate(180deg);
-            transform-origin: center center;
+        &.print-double-sided {
+            .recipe-card {
+                break-after: page;
+                
+                &:nth-child(even) {
+                    border: none;
+                }
+            }
+        }
+        
+        &.print-foldable {
+            .recipe-card {
+                margin-bottom: 3px;
+                
+                &:nth-child(even) {
+                    transform: rotate(180deg);
+                    transform-origin: center center;
+                }
+            }
         }
     }
 }
