@@ -56,7 +56,7 @@ body {
     }
     
     header {
-        margin-bottom: 0.25in;
+        margin-bottom: 0.125in;
         
         h1,
         h2,
@@ -83,12 +83,16 @@ body {
         }
         
         h3 {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
     }
     
     &.instructions header {
         margin-bottom: 0.125in;
+        
+        h3 {
+            font-size: 0.8rem;
+        }
     }
     
     .columns {
