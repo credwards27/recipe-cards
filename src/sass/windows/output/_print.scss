@@ -1,4 +1,11 @@
+@use 'lib';
+
 @media print {
+    body {
+        background: #fff;
+        -webkit-font-smoothing: antialiased;
+    }
+    
     #recipe-cards {
         transform: none !important;
     }
@@ -7,6 +14,7 @@
         -webkit-print-color-adjust: exact;
         
         margin-bottom: 3px;
+        border: 1px dotted lib.color(gray-light-1);
         
         &.instructions {
             transform: rotate(180deg);
