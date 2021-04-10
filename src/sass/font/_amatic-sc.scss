@@ -1,0 +1,20 @@
+/* _amatic-sc.scss
+    
+    Font definition for 'Amatic SC'.
+*/
+
+// Regular
+@font-face {
+    font-family: 'Amatic SC';
+    src: url('app://assets/font/amatic-sc/AmaticSC-Regular.ttf') format('ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+
+// Bold
+@font-face {
+    font-family: 'Amatic SC';
+    src: url('app://assets/font/amatic-sc/AmaticSC-Bold.ttf') format('ttf');
+    font-style: normal;
+    font-weight: 600;
+}
