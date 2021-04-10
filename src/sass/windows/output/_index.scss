@@ -54,16 +54,25 @@ body {
         margin-bottom: 0.25in;
         
         h1,
-        h2 {
+        h2,
+        h3 {
             margin-top: 0;
             margin-bottom: 0;
         }
         
-        h2 {
+        h2,
+        h3 {
             color: lib.color(gray);
-            font-size: 1rem;
             font-style: italic;
+        }
+        
+        h2 {
+            font-size: 1rem;
             text-align: right;
+        }
+        
+        h3 {
+            font-size: 0.8rem;
         }
     }
     
