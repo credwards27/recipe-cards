@@ -47,6 +47,9 @@ body {
     padding: 0.25in;
     margin: 0 auto 20px;
     
+    // Make sure print guides don't affect layout
+    border: 1px dotted transparent;
+    
     &:last-child {
         margin-bottom: 0;
     }
